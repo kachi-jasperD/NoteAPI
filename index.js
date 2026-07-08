@@ -4,7 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const RequestLogger = require("./middlewares/logger.js");
 const errorHandler = require("./middlewares/errorHandler.js");
-// const sampleRoutes = require("./routes/sample.route.js");
+const notesRoutes = require("./routes/route.js");
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -25,7 +25,7 @@ connectDB();
 // ROUTES
 //------------------------------------
 
-// app.use("/api", sampleRoutes);
+app.use("/api/notes", notesRoutes);
 
 //------------------------------------
 // LAST MIDDLEWARE

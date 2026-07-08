@@ -1,12 +1,19 @@
-const validateTodo = (schema) => {
+const validateTodo = (schema, property = "body") => {
   return (req, res, next) => {
-    const { error } = schema.validate(req.body);
+    const { error, value } = schema.validate(req[property]);
 
     if (error) {
       return res.status(400).json({
-        error: error.details[0].message,
+        success: false,
+        message: "Validation failed",
+        errors: error.details.map((detail) => ({
+          field: detail.path.join("."),
+          message: detail.message,
+        })),
       });
     }
+
+    req[property] = value;
 
     next();
   };
