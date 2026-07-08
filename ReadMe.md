@@ -30,7 +30,7 @@ A RESTful Notes API built with **Node.js**, **Express.js**, **MongoDB**, **Mongo
 ```text
 .
 ├── controllers
-│   └── sample.controller.js
+│   └── controller.js
 ├── database
 │   └── connectDB.js
 ├── middlewares
@@ -38,11 +38,11 @@ A RESTful Notes API built with **Node.js**, **Express.js**, **MongoDB**, **Mongo
 │   ├── logger.js
 │   └── validator.js
 ├── models
-│   └── sample.model.js
+│   └── model.js
 ├── routes
-│   └── sample.route.js
+│   └── route.js
 ├── schema
-│   └── sample.schema.js
+│   └── schema.js
 ├── index.js
 ├── package.json
 └── ReadMe.md
