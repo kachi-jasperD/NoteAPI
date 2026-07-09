@@ -48,7 +48,7 @@ const createNoteSchema = Joi.object({
     stripUnknown: true,
 });
 
-const objectIdSchema = Joi.object({
+const getNoteByIdSchema = Joi.object({
     id: Joi.string()
         .hex()
         .length(24)
@@ -63,5 +63,5 @@ const objectIdSchema = Joi.object({
 // export the schema
 module.exports = {
     createNoteSchema,
-    objectIdSchema,
+    getNoteByIdSchema,
 };
