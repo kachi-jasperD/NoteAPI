@@ -6,7 +6,7 @@ const { createNote, getNoteById } = require("../controllers/note.controller.js")
 
 // Import validation schema
 const validate = require("../middlewares/validator.js");
-const { createNoteSchema, objectIdSchema } = require("../schema/note.schema.js");
+const { createNoteSchema, getNoteByIdSchema } = require("../schema/note.schema.js");
 
 // Create a new note
 router.post(
