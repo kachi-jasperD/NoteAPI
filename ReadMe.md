@@ -1,6 +1,6 @@
 # Notes API
 
-A RESTful Notes API built with **Node.js**, **Express.js**, **MongoDB**, **Mongoose**, and **Joi**. The API allows users to create notes and retrieve individual notes by their ID while validating incoming requests.
+A RESTful Notes API built with **Node.js**, **Express.js**, **MongoDB**, **Mongoose**, and **Joi**. The API allows users to create, retrieve, update, delete, and search notes.
 
 ---
 
@@ -10,6 +10,7 @@ A RESTful Notes API built with **Node.js**, **Express.js**, **MongoDB**, **Mongo
 - Retrieve a note by ID
 - Request validation using Joi
 - MongoDB integration with Mongoose
+- Text indexes on title and content for search
 - Centralized error handling
 - Input sanitization and validation
 
@@ -19,7 +20,7 @@ A RESTful Notes API built with **Node.js**, **Express.js**, **MongoDB**, **Mongo
 
 - Node.js
 - Express.js
-- MongoDB
+- MongoDB Atlas
 - Mongoose
 - Joi
 
@@ -30,7 +31,7 @@ A RESTful Notes API built with **Node.js**, **Express.js**, **MongoDB**, **Mongo
 ```text
 .
 ├── controllers
-│   └── controller.js
+│   └── note.controller.js
 ├── database
 │   └── connectDB.js
 ├── middlewares
@@ -38,11 +39,11 @@ A RESTful Notes API built with **Node.js**, **Express.js**, **MongoDB**, **Mongo
 │   ├── logger.js
 │   └── validator.js
 ├── models
-│   └── model.js
+│   └── note.model.js
 ├── routes
-│   └── route.js
+│   └── note.route.js
 ├── schema
-│   └── schema.js
+│   └── note.schema.js
 ├── index.js
 ├── package.json
 └── ReadMe.md
@@ -110,10 +111,7 @@ Creates a new note.
   "title": "Prepare AWS Developer Exam",
   "content": "Study Lambda, DynamoDB and API Gateway.",
   "category": "Study",
-  "tags": ["aws", "lambda"],
-  "priority": "High",
-  "isPinned": true,
-  "reminderDate": "2026-08-01T09:00:00Z"
+  "tags": ["aws", "lambda"]
 }
 ```
 
@@ -131,8 +129,6 @@ Creates a new note.
     "content": "...",
     "category": "...",
     "tags": [],
-    "priority": "...",
-    "isPinned": false,
     "createdAt": "...",
     "updatedAt": "..."
   }
@@ -145,11 +141,8 @@ Creates a new note.
 |--------|----------|-------------|
 | title | Yes | 3–100 characters |
 | content | Yes | 10–5000 characters |
-| category | No | Personal, Work, Study, Ideas, Other |
+| category | No | Maximum 50 characters |
 | tags | No | Maximum 10 unique tags |
-| priority | No | Low, Medium, High |
-| isPinned | No | Boolean |
-| reminderDate | No | Must be a future date |
 
 ---
 
@@ -166,14 +159,13 @@ Returns a single note using its MongoDB ObjectId.
 ```json
 {
   "success": true,
+  "message": "Note retrieved successfully",
   "data": {
     "_id": "...",
     "title": "...",
     "content": "...",
     "category": "...",
     "tags": [],
-    "priority": "...",
-    "isPinned": false,
     "createdAt": "...",
     "updatedAt": "..."
   }
@@ -230,11 +222,10 @@ Validation includes:
 
 - Required fields
 - String length validation
-- Enum validation
-- Array validation
-- Boolean validation
-- Future date validation
+- Category length validation
+- Tags array validation
 - MongoDB ObjectId validation
+- Removal of unknown request fields
 
 ---
 
@@ -247,3 +238,55 @@ Validation includes:
 | `400 Bad Request` | Validation failed |
 | `404 Not Found` | Resource not found |
 | `500 Internal Server Error` | Unexpected server error |
+
+---
+
+# API Testing
+
+The following screenshots demonstrate the successful testing of the implemented API endpoints and validation rules using Postman.
+
+## 1. Test 1 – Create a Note (201 Created)
+
+![Test 1 - Create a note](assets/Test%201%20-%20Create%20a%20note.png)
+
+---
+
+## 2. Test 2 – Missing Title (400 Bad Request)
+
+![Test 2 - Missing title](assets/Test%202%20-%20Missing%20title.png)
+
+---
+
+## 3. Test 3 – Missing Content (400 Bad Request)
+
+![Test 3 - Missing content](assets/Test%203%20-%20Missing%20content.png)
+
+---
+
+## 4. Test 4 – Invalid Tags (400 Bad Request)
+
+![Test 4 - Invalid tags](assets/Test%204%20-%20Invalid%20tags.png)
+
+---
+
+## 5. Test 5 – Category Too Long (400 Bad Request)
+
+![Test 5 - Category too long](assets/Test%205%20-%20Category%20too%20long.png)
+
+---
+
+## 6. Test 6 – Get Existing Note (200 OK)
+
+![Test 6 - Get existing note](assets/Test%206%20-%20Get%20existing%20note.png)
+
+---
+
+## 7. Test 7 – Invalid ObjectId (400 Bad Request)
+
+![Test 7 - Invalid ObjectId](assets/Test%207%20-%20Invalid%20ObjectId.png)
+
+---
+
+## 8. Test 8 – Valid ObjectId That Doesn't Exist (404 Not Found)
+
+![Test 8 - Valid ObjectId that doesn't exist](assets/Test%208%20-%20Valid%20ObjectId%20that%20doesn't%20exist.png)

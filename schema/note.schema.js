@@ -27,8 +27,11 @@ const createNoteSchema = Joi.object({
 
     category: Joi.string()
         .trim()
-        .valid("Personal", "Work", "Study", "Ideas", "Other")
-        .default("Personal"),
+        .max(50)
+        .optional()
+        .messages({
+            "string.max": "Category cannot exceed 50 characters",
+        }),
 
     tags: Joi.array()
         .items(
@@ -39,40 +42,26 @@ const createNoteSchema = Joi.object({
         )
         .max(10)
         .unique()
-        .default([]),
-
-    priority: Joi.string()
-        .valid("Low", "Medium", "High")
-        .default("Medium"),
-
-    isPinned: Joi.boolean()
-        .default(false),
-
-    reminderDate: Joi.date()
-        .greater("now")
-        .optional()
-        .messages({
-            "date.greater": "Reminder date must be in the future",
-        }),
+        .optional(),
 }).options({
     abortEarly: false,
     stripUnknown: true,
 });
 
 const objectIdSchema = Joi.object({
-  id: Joi.string()
-    .hex()
-    .length(24)
-    .required()
-    .messages({
-      "string.length": "Invalid note ID",
-      "string.hex": "Invalid note ID",
-      "any.required": "Note ID is required",
-    }),
+    id: Joi.string()
+        .hex()
+        .length(24)
+        .required()
+        .messages({
+            "string.length": "Invalid note ID",
+            "string.hex": "Invalid note ID",
+            "any.required": "Note ID is required",
+        }),
 });
 
 // export the schema
 module.exports = {
-  createNoteSchema,
-  objectIdSchema,
+    createNoteSchema,
+    objectIdSchema,
 };

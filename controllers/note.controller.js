@@ -1,7 +1,7 @@
 const Joi = require("joi");
 
 // Import model
-const Note = require("../models/model.js");
+const Note = require("../models/note.model.js");
 
 // Create a new note
 const createNote = async (req, res, next) => {

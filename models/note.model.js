@@ -6,48 +6,36 @@ const noteSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
-      minLength: 3,
-      maxLength: 100,
+      minlength: 3,
+      maxlength: 100,
     },
 
     content: {
       type: String,
       required: true,
       trim: true,
-      minLength: 10,
-      maxLength: 5000,
+      minlength: 10,
+      maxlength: 5000,
     },
 
     category: {
       type: String,
-      enum: ["Personal", "Work", "Study", "Ideas", "Other"],
-      default: "Personal",
+      trim: true,
     },
 
     tags: {
       type: [String],
       default: [],
     },
-
-    priority: {
-      type: String,
-      enum: ["Low", "Medium", "High"],
-      default: "Medium",
-    },
-
-    isPinned: {
-      type: Boolean,
-      default: false,
-    },
-
-    reminderDate: {
-      type: Date,
-      default: null,
-    },
   },
   {
     timestamps: true,
   }
 );
+
+noteSchema.index({
+  title: "text",
+  content: "text",
+});
 
 module.exports = mongoose.model("Note", noteSchema);
