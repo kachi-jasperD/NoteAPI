@@ -1,25 +1,17 @@
 const express = require("express");
 const router = express.Router();
 
-// Import controller functions
-const { createNote, getNoteById } = require("../controllers/note.controller.js");
+// Import all controller handlers cleanly
+const noteController = require("../controllers/note.controller.js");
 
-// Import validation schema
-const validate = require("../middlewares/validator.js");
-const { createNoteSchema, objectIdSchema } = require("../schema/note.schema.js");
+// Import schemas
+const { createNoteSchema, updateNoteSchema, objectIdSchema } = require("../schema/note.schema.js");
 
-// Create a new note
-router.post(
-  "/notes",
-  validate(createNoteSchema),
-  createNote
-);
-
-// Get a single note by ID
-router.get(
-  "/notes/:id",
-  validate(objectIdSchema, "params"),
-  getNoteById
-);
+// Map endpoints using the controller object safely
+router.post("/", noteController.createNote);
+router.get("/:id", noteController.getNoteById);
+router.put("/:id", noteController.updateNoteById);
+router.delete("/:id", noteController.deleteNoteById);
 
 module.exports = router;
+
