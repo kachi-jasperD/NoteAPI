@@ -5,13 +5,17 @@ const router = express.Router();
 const noteController = require("../controllers/note.controller.js");
 
 // Import schemas
-const { createNoteSchema, updateNoteSchema, objectIdSchema } = require("../schema/note.schema.js");
+const {
+  createNoteSchema,
+  updateNoteSchema,
+  objectIdSchema,
+} = require("../schema/note.schema.js");
 
 // Map endpoints using the controller object safely
-router.post("/", noteController.createNote);
-router.get("/:id", noteController.getNoteById);
-router.put("/:id", noteController.updateNoteById);
-router.delete("/:id", noteController.deleteNoteById);
+router.post("/notes", noteController.createNote);
+router.get("/notes/:id", noteController.getNoteById);
+router.get("/notes", noteController.getAllNotes);
+router.put("/notes/:id", noteController.updateNoteById);
+router.delete("/notes/:id", noteController.deleteNoteById);
 
 module.exports = router;
-
