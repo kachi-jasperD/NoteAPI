@@ -238,7 +238,7 @@ The following screenshots demonstrate the successful testing of the implemented 
 
 ## 🤝 Contributors
 
-This project is made possible through the contributions of developers, testers, and community members. Every contribution—whether it's code, documentation, bug reports, feature suggestions, or feedback—is greatly appreciated.
+This project is made possible through the contributions of developers, who doubled as testers. Every contribution—whether it's code, documentation, or feedback—is greatly appreciated.
 
 <img width="390" height="221" alt="Image" src="https://github.com/user-attachments/assets/cd05e3f6-47cb-4e5b-87c1-25abe721f1a2" />
 
@@ -252,14 +252,13 @@ Contributions are always welcome! You can help by:
 - 🐛 Reporting bugs
 - 💡 Suggesting new features or improvements
 - 📝 Improving documentation
-- 🔧 Fixing bugs or implementing features
+- 🔧 Peer programming
 - ✅ Reviewing pull requests and providing feedback
 
-Please read the contribution guidelines before getting started.
 
 ### Our Contributors
 
-A huge thank you to everyone who has contributed to this project. Your time and effort help make it better for everyone.
+A huge thank you to everyone who has contributed to this project. Your time and effort helped make it better for everyone.
 
 <img width="1056" height="654" alt="Image" src="https://github.com/user-attachments/assets/b71d8a43-a2fa-46e4-926d-3074ae2c4f29" />
 
