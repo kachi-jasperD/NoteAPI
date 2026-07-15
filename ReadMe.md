@@ -187,46 +187,47 @@ The following screenshots demonstrate the successful testing of the implemented 
 
 ## 1. Test 1 – Create a Note (201 Created)
 
-![Test 1 - Create a note]([assets/Test%201%20-%20Create%20a%20note.png](https://github.com/s1xte3n/NoteAPI/blob/main/assets/Test%201%20%E2%80%94%20Create%20a%20note.png?raw=true))
+<img width="1600" height="900" alt="Image" src="https://github.com/user-attachments/assets/e5ad2e82-6799-4a14-a017-d986998018b4" />
+
 
 ---
 
 ## 2. Test 2 – Missing Title (400 Bad Request)
 
-![Test 2 - Missing title]([assets/Test%202%20-%20Missing%20title.png](https://github.com/s1xte3n/NoteAPI/blob/main/assets/Test%202%20%E2%80%94%20Missing%20title.png?raw=true))
+<img width="1600" height="900" alt="Image" src="https://github.com/user-attachments/assets/a5e98df7-94a7-46e0-bc74-c3749f636150" />
 
 ---
 
 ## 3. Test 3 – Missing Content (400 Bad Request)
 
-![Test 3 - Missing content]([assets/Test%203%20-%20Missing%20content.png](https://github.com/s1xte3n/NoteAPI/blob/main/assets/Test%203%20%E2%80%94%20Missing%20content.png?raw=true))
+<img width="1600" height="900" alt="Image" src="https://github.com/user-attachments/assets/41cacf8f-2bfc-41f6-9105-0a6409859560" />
 
 ---
 
 ## 4. Test 4 – Invalid Tags (400 Bad Request)
 
-![Test 4 - Invalid tags]([assets/Test%204%20-%20Invalid%20tags.png](https://github.com/s1xte3n/NoteAPI/blob/main/assets/Test%204%20%E2%80%94%20Invalid%20tags.png?raw=true))
+<img width="1600" height="900" alt="Image" src="https://github.com/user-attachments/assets/5bd0c893-2c40-4404-a143-a2998a59c0d7" />
 
 ---
 
 ## 5. Test 5 – Category Too Long (400 Bad Request)
 
-![Test 5 - Category too long]([assets/Test%205%20-%20Category%20too%20long.png](https://github.com/s1xte3n/NoteAPI/blob/main/assets/Test%205%20%E2%80%94%20Category%20too%20long.png?raw=true))
+<img width="1600" height="900" alt="Image" src="https://github.com/user-attachments/assets/bf783f44-fa94-4153-b490-f8062bfea544" />
 
 ---
 
 ## 6. Test 6 – Get Existing Note (200 OK)
 
-![Test 6 - Get existing note]([assets/Test%206%20-%20Get%20existing%20note.png](https://github.com/s1xte3n/NoteAPI/blob/main/assets/Test%206%20%E2%80%94%20Get%20existing%20note.png?raw=true))
+<img width="1600" height="900" alt="Image" src="https://github.com/user-attachments/assets/24b01438-5034-43b5-a474-fab452b8e275" />
 
 ---
 
 ## 7. Test 7 – Invalid ObjectId (400 Bad Request)
 
-![Test 7 - Invalid ObjectId]([assets/Test%207%20-%20Invalid%20ObjectId.png](https://github.com/s1xte3n/NoteAPI/blob/main/assets/Test%207%20%E2%80%94%20Invalid%20ObjectId.png?raw=true))
+<img width="1600" height="900" alt="Image" src="https://github.com/user-attachments/assets/367484a2-74ea-4eb8-8b7a-d1bb24c7aa5e" />
 
 ---
 
 ## 8. Test 8 – Valid ObjectId That Doesn't Exist (404 Not Found)
 
-![Test 8 - Valid ObjectId that doesn't exist]([assets/Test%208%20-%20Valid%20ObjectId%20that%20doesn't%20exist.png](https://github.com/s1xte3n/NoteAPI/blob/main/assets/Test%208%20%E2%80%94%20Valid%20ObjectId%20that%20doesn't%20exist.png?raw=true))
+<img width="1600" height="900" alt="Image" src="https://github.com/user-attachments/assets/89cf0e2c-2801-44a7-ae92-188aa20a8c68" />
