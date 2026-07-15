@@ -98,42 +98,9 @@ http://localhost:3000
 
 # API Endpoints
 
-## Create a Note
+## API DOCUMENTATION
 
-**POST** `/api/notes`
-
-Creates a new note.
-
-### Request Body
-
-```json
-{
-  "title": "Prepare AWS Developer Exam",
-  "content": "Study Lambda, DynamoDB and API Gateway.",
-  "category": "Study",
-  "tags": ["aws", "lambda"]
-}
-```
-
-### Success Response
-
-**201 Created**
-
-```json
-{
-  "success": true,
-  "message": "Note created successfully",
-  "data": {
-    "_id": "...",
-    "title": "...",
-    "content": "...",
-    "category": "...",
-    "tags": [],
-    "createdAt": "...",
-    "updatedAt": "..."
-  }
-}
-```
+https://documenter.getpostman.com/view/2449601/2sBY4Mugtn
 
 ### Validation Rules
 
@@ -145,33 +112,6 @@ Creates a new note.
 | tags | No | Maximum 10 unique tags |
 
 ---
-
-## Get a Note by ID
-
-**GET** `/api/notes/:id`
-
-Returns a single note using its MongoDB ObjectId.
-
-### Success Response
-
-**200 OK**
-
-```json
-{
-  "success": true,
-  "message": "Note retrieved successfully",
-  "data": {
-    "_id": "...",
-    "title": "...",
-    "content": "...",
-    "category": "...",
-    "tags": [],
-    "createdAt": "...",
-    "updatedAt": "..."
-  }
-}
-```
-
 ### Error Responses
 
 #### Invalid ID
